@@ -1,0 +1,68 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    margin-top: 300px;
+    text-transform: uppercase;
+
+    .divider {
+        background-color: #a0a0a0;
+        width: 15%;
+        height: 3px;
+        border: 1px solid #a0a0a0;
+        position: relative;
+        right: 130px;
+    }
+
+    .footer-section {
+        width: 30%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;   
+    }
+
+    .contact-us {
+        span {
+            margin: 20px 0 0;
+        }
+    }
+
+    .form-input-section {
+        margin: 0;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .custom-button {
+        width: 100px;
+    }
+
+    .pages {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    hr {
+        width: 100%;
+        background-color: #a0a0a0;
+        border: .5px solid  #a0a0a0;
+    }
+
+    .icon {
+        height: 50px;
+        width: 50px;
+    }
+
+    .info-container {
+        position: relative;
+        margin-top: 15px;
+    }
+
+    .info {
+        position: absolute;
+        margin-left: 10px;
+
+    }
+}

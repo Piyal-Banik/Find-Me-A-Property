@@ -1,0 +1,37 @@
+.form-input-section {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    width: 70%;
+
+    .label {
+        font-size: 120%;
+        font-weight: bold;
+        margin-right: 20px;
+        width: 20%;
+        color: rgba(0,0,0,.6);
+    }
+    
+    .message {
+        align-self: flex-start;
+    }
+    
+    .form-input {
+        background: none;
+        background-color: white;
+        color: rgba(0,0,0,.6);
+        font-size: 18px;
+        width: 80%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid rgba(0,0,0,.6);
+        border-radius: 0;
+        margin: 5px 0;
+        outline: none;
+        
+        &:hover {
+            border: 1px solid black;
+            box-shadow: none;
+        }
+    }
+}

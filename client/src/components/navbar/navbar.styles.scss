@@ -1,0 +1,52 @@
+.navbar {
+  height: 70px;
+  width: 100%;
+  padding: 0px 70px 0px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  font-size: 18px;
+  background-color: #f0f0f0;
+  z-index: 100;
+
+  .logo-container {
+    width: 10%;
+
+    .logo {
+      width: 100%;
+    }
+  }
+
+  .main-nav {
+    margin-left: 210px;
+  }
+
+  .options {
+    width: 68%;
+    display: flex;
+    justify-content: flex-end;
+
+    .option {
+      padding: 0 15px;
+    }
+  }
+
+  .login {
+    position: relative;
+    top: 10px;
+  }
+
+  .join {
+    .custom-button {
+      font-size: medium;
+      text-transform: none;
+      width: 10px;
+    }
+  }
+
+  .selected {
+    color: #7a9c59;
+  }
+}
