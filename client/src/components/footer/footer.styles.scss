@@ -1,25 +1,26 @@
 .footer {
-    width: 100%;
+    color: white;
     display: flex;
     justify-content: space-between;
-    background-color: #f0f0f0;
+    background-color: #333f48;
     margin-top: 300px;
     text-transform: uppercase;
 
-    .divider {
-        background-color: #a0a0a0;
-        width: 15%;
-        height: 3px;
-        border: 1px solid #a0a0a0;
-        position: relative;
-        right: 130px;
-    }
-
     .footer-section {
-        width: 30%;
         padding: 30px;
         display: flex;
-        flex-direction: column;   
+        flex-direction: column; 
+        
+        .divider {
+            background-color: #a0a0a0;
+            height: 5px;
+            width: 55px;
+            border: 1px solid #a0a0a0;
+            align-self: flex-start;
+            position: relative;
+            left: 10px;
+            margin: 10px;
+        }
     }
 
     .contact-us {
@@ -44,10 +45,18 @@
         margin-top: 15px;
     }
 
-    hr {
-        width: 100%;
+    .large-divider {
+        width: 90%;
         background-color: #a0a0a0;
         border: .5px solid  #a0a0a0;
+        margin: 10px;
+        position: relative;
+        right: 5%;
+    }
+
+    .option {
+        color: white;
+        text-decoration: none;
     }
 
     .icon {

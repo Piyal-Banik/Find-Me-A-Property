@@ -1,5 +1,4 @@
 .navbar {
-  height: 70px;
   width: 100%;
   padding: 0px 70px 0px 50px;
   display: flex;
@@ -8,20 +7,18 @@
   position: fixed;
   top: 0;
   font-size: 18px;
-  background-color: #f0f0f0;
+  background-color: #333f48;
+  color: white;
   z-index: 100;
 
   .logo-container {
-    width: 10%;
+    width: 2%;
 
     .logo {
       width: 100%;
     }
   }
 
-  .main-nav {
-    margin-left: 210px;
-  }
 
   .options {
     width: 68%;
@@ -30,6 +27,8 @@
 
     .option {
       padding: 0 15px;
+      text-decoration: none;
+      color: white;
     }
   }
 
@@ -44,6 +43,10 @@
       text-transform: none;
       width: 10px;
     }
+  }
+
+  .mobile-join-option {
+    margin-top: 15px;
   }
 
   .selected {

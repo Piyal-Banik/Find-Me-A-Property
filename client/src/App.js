@@ -5,7 +5,8 @@ import './App.css';
 import SignInSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import ProductRegisterPage from './pages/property-register-page/property-register-page.component';
 import Footer from './components/footer/footer.component';
-import Navbar from './components/navbar/navbar.component';
+import Navigation from './components/navbar/navbar.component';
+import Example from './components/example.component';
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Navbar />
+        <Navigation />
         <Switch>
           <Route path='/login-signup' component={SignInSignUpPage} />
           <Route path='/property-register' component={ProductRegisterPage} />
