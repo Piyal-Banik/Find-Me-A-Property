@@ -1,0 +1,75 @@
+$color-secondary: #e26923;
+
+.signin {
+    border: 1px solid black;
+}
+
+.form-input {
+    background: none;
+    background-color: white;
+    color: rgba(0,0,0,.6);
+    font-size: 18px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.6);
+    border-radius: 0;
+    margin: 15px 0;
+    outline: none;
+    
+    &:hover {
+        border: 1px solid black;
+        box-shadow: none;
+    }
+}
+
+.button {
+    padding: 10px;
+    letter-spacing: 0.5px;
+    font-size: medium;
+    color: white;
+
+    &:hover {
+        background-color: white;
+    }
+}
+
+.signin-button {
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
+
+    &:hover {
+        color: $color-secondary;
+        border: 1px solid $color-secondary;
+    }
+}
+
+.social-login {
+    margin: 20px 0;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+
+    .facebook {
+        background-color: #49639F;
+        width: 100%;
+
+        &:hover {
+            background-color: white;
+            color: #49639F;
+            border: 1px solid #49639F;
+        }
+    }
+
+    .google {
+        background-color: #DF4A32;
+        width: 100%;
+        
+        &:hover {
+            background-color: white;
+            color: #DF4A32;
+            border: 1px solid #DF4A32;
+        }
+    }
+}
+
+

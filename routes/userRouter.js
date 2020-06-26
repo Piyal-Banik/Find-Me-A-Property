@@ -44,11 +44,18 @@ var upload = multer({
 
 userRouter.post('/signup', upload.single('profile-image'), (req,res,next) => {
     Users.register(new Users({username: req.body.username}), req.body.password, (error, user) => {
+        if(error) {
+            next(error);
+        }
+
         if(req.body.firstname) {
             user.firstname = req.body.firstname;
         }
         if(req.body.lastname) {
             user.lastname = req.body.lastname;
+        }
+        if(req.body.email) {
+            user.email = req.body.email;
         }
         if(req.body.seller) {
             user.seller = req.body.seller;

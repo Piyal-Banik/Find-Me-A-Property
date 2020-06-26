@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import SectionTitle from '../section-title/section-title.component';
+
+import './sign-up.styles.scss'
 
 class SignUp extends Component {
     constructor(props) {
@@ -8,6 +11,7 @@ class SignUp extends Component {
         this.state = {
             firstname: '',
             lastname: '',
+            email: '',
             username: '',
             password: '',
             image: undefined
@@ -27,6 +31,7 @@ class SignUp extends Component {
         this.setState({
             firstname: '',
             lastname: '',
+            email: '',
             username: '',
             password: '',
             image: undefined,
@@ -40,6 +45,7 @@ class SignUp extends Component {
         var formData = new FormData();
         formData.append('firstname', this.state.firstname);
         formData.append('lastname', this.state.lastname);
+        formData.append('email', this.state.email);
         formData.append('username', this.state.username);
         formData.append('password', this.state.password);
         formData.append('profile-image', this.state.image);
@@ -61,35 +67,57 @@ class SignUp extends Component {
 
     render() {
         return(
-            <div className='sign-up'>
-                <form onSubmit={this.signup}>
-                    <label htmlFor='firstname'>First Name</label>
-                    <br />
-                    <input type='text' name='firstname' value={this.state.firstname} onChange={this.handleTextChange}/>
-                    <br /> <br />
+            <div className='sign-up container'>
+                <SectionTitle className='title' title='Sign Up' />
 
-                    <label htmlFor='lastname'>Last Name</label>
-                    <br />
-                    <input type='text' name='lastname' value={this.state.lastname} onChange={this.handleTextChange}/>
-                    <br /> <br />
+                <form onSubmit={this.signup} className='form-section container'>
+                    <div className='row'>
+                        <div className='col-md-2 col-lg-3'></div>
+                        <input type='text' name='firstname' className='form-input col-6 col-sm-6 col-md-4 col-lg-3' value={this.state.firstname} onChange={this.handleTextChange} placeholder='First Name' /> 
+                        <input type='text' name='lastname' className='form-input col-6 col-sm-6 col-md-4 col-lg-3' value={this.state.lastname} onChange={this.handleTextChange} placeholder='Last Name' />  
+                        <div className='col-md-2 col-lg-3'></div>
+                    </div>
+                    
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <input type='text' name='email' className='form-input col-12 col-sm-12 col-md-8 col-lg-6' value={this.state.email} onChange={this.handleTextChange} placeholder='Enter Your Email' />                    
+                    </div>
 
-                    <label htmlFor='username'>User Name</label>
-                    <br />
-                    <input type='text' name='username' value={this.state.username} onChange={this.handleTextChange}/>
-                    <br /> <br />
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <input type='text' name='username' className='form-input col-12 col-sm-12 col-md-8 col-lg-6' value={this.state.username} onChange={this.handleTextChange} placeholder='Enter Your Username' />                    
+                    </div>
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <input type='password' name='password' className='form-input col-12 col-sm-12 col-md-8 col-lg-6' value={this.state.password} onChange={this.handleTextChange} placeholder='Enter Your Password' />                    
+                    </div>
 
-                    <label htmlFor='password'>Password</label>
-                    <br />
-                    <input type='password' name='password' value={this.state.password} onChange={this.handleTextChange}/>
-                    <br /> <br />
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <label htmlFor='profile-image'>Profile Picture</label>
+                        <input type='file' name='profile-picture' className='col-7 col-sm-12 col-md-8 col-lg-6' key={this.state.imageKey} onChange={this.handleFileChange} />                    
+                    </div>
 
-                    <label htmlFor='profile'>Profile Picture</label>
-                    <br />
-                    <input type='file' name='profile-image' key={this.state.imageKey} onChange={this.handleFileChange}/>
-                    <br /> <br />
-
-                    <button>Sign Up</button>
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <button className='signin-button button col-12 col-sm-12 col-md-8 col-lg-6'>Sign In</button>
+                    </div>
                 </form>
+
+                <div className='social-login row'>
+                    <div className='col-md-2 col-lg-3'></div>
+                    <div className='col-6 col-sm-6 col-md-4 col-lg-3'>
+                        <button className='button facebook'>
+                            <i className="fa fa-facebook fa-lg">acebook</i>
+                        </button>
+                    </div>
+                    <div className='col-6 col-sm-6 col-md-4 col-lg-3'>
+                        <button className='button google'>
+                            <i className="fa fa-google fa-lg">oogle</i>
+                        </button>
+                    </div>
+                    <div className='col-md-2 col-lg-3'></div>
+                </div>
             </div>
         )
     }

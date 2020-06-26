@@ -1,0 +1,94 @@
+$color-secondary: #e26923;
+
+.form-section {
+    margin-left: 100px;
+}
+
+.form-input {
+    background: none;
+    background-color: white;
+    color: rgba(0,0,0,.6);
+    font-size: 18px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.6);
+    border-radius: 0;
+    margin: 15px 0;
+    outline: none;
+    
+    &:hover {
+        border: 1px solid black;
+        box-shadow: none;
+    }
+}
+
+.description {
+    height: 250px;
+    resize: none;
+}
+
+.address {
+    height: 100px;
+    resize: none;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+
+    .label {
+        font-size: 120%;
+        font-weight: bold;
+        margin-right: 20px;
+        width: 20%;
+        color: rgba(0,0,0,.6);
+    }
+    
+    .message {
+        align-self: flex-start;
+    }
+    
+    .form-input {
+        background: none;
+        background-color: white;
+        color: rgba(0,0,0,.6);
+        font-size: 18px;
+        padding: 10px;
+        border: 1px solid rgba(0,0,0,.6);
+        border-radius: 0;
+        margin: 5px 0;
+        outline: none;
+        
+        &:hover {
+            border: 1px solid black;
+            box-shadow: none;
+        }
+    }
+
+    .message-box {
+        height: 250px;
+        resize: none;
+    }
+}
+
+.select-type {
+    height: 40px;
+    resize: none;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.images {
+    margin-top: 10px;
+}
+
+.register-button {
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
+    margin: 20px 0;
+
+    &:hover {
+        color: $color-secondary;
+        border: 1px solid $color-secondary;
+    }
+}

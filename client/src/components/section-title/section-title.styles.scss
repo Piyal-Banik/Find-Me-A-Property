@@ -1,0 +1,18 @@
+.title-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0,0,0,0.6);
+
+    .title {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+    }
+
+    .divider {
+        width: 100px;
+        border: 2px solid #a0a0a0;
+        margin-bottom: 30px;
+    }
+}

@@ -12,7 +12,6 @@ var propertySchema = new Schema({
     type: {
         type: String
     },
-    status: String,
     location: {
         type: String
     },
@@ -32,7 +31,7 @@ var propertySchema = new Schema({
         type: Number,
         min: 0
     },
-    area: {
+    address: {
         type: String
     },
     year: {

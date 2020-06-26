@@ -5,8 +5,8 @@ import FormInput from '../form-input/form-input.components';
 import CustomButton from '../custom-button/custom-button.component';
 
 const Footer = (props) => (
-    <div className='container-fluid'>
-        <div className='footer row'>
+    <div className='container-fluid footer'>
+        <div className='row'>
             <div className='footer-section col-12 col-sm-6 col-md-4'>
                 <h3>PAGES</h3>
                 <div className='divider'/>
@@ -20,7 +20,7 @@ const Footer = (props) => (
                     <NavLink className='option' to='/contact'>CONTACT</NavLink>
                     <div className='large-divider' />
                     <NavLink className='option' to='/account'>MY ACCOUNT</NavLink>
-                </div>
+                </div>     
             </div>
 
             <div className='footer-section contact-us col-12 col-sm-6 col-md-4'>
@@ -38,6 +38,7 @@ const Footer = (props) => (
 
                 <CustomButton inverted>Sign Up</CustomButton>
             </div>
+    
         </div>
     </div>
 );

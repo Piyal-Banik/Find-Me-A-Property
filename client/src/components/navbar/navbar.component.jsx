@@ -9,7 +9,7 @@ const Navigation = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
     return(
-        <Navbar className = 'navbar' expand="md">
+        <Navbar className = 'navbar container-fluid' expand="md">
             <NavbarBrand className='logo-container col-3 col-sm-1' to='/' >
                 <img className='logo' src='/images/logo.png' alt='' />
             </NavbarBrand>

@@ -47,13 +47,12 @@ propertyRouter.post('/register', upload.fields([{name: 'displayImage', maxCount:
 
     property.description = req.body.description;
     property.type = req.body.type;
-    property.status = req.body.status;
     property.location = req.body.location;
     property.bedrooms = req.body.bedrooms;
     property.bathrooms = req.body.bathrooms;
     property.garage = req.body.garage;
     property.price = req.body.price;
-    property.area = req.body.area;
+    property.address = req.body.address;
     property.year = req.body.year;
     property.displayImage = req.files.displayImage[0].path;
     property.galleryImages = galleryImagesPaths;

@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './property-register.styles.scss';
 
+
+
 class PropertyRegister extends Component {
     constructor(props) {
         super(props);
@@ -12,13 +14,15 @@ class PropertyRegister extends Component {
             type: '',
             status: '',
             location: '',
-            bedrooms: 1,
-            bathrooms: 1,
-            garages: 1,
-            price: 0,
-            area: '',
+            bedrooms: 0,
+            bathrooms: 0,
+            garages: 0,
+            price: '',
+            address: '',
             year: '',
             displayImage: undefined,
+            displayImageKey: Date.now(),
+            galleryImagesKey: Date.now(),
             galleryImages: [],
             property: null
         }
@@ -50,15 +54,17 @@ class PropertyRegister extends Component {
         formData.append('bedrooms', this.state.bedrooms);
         formData.append('bathrooms', this.state.bathrooms);
         formData.append('garages', this.state.garages);
-
+        formData.append('address', this.state.address);
         formData.append('price', this.state.price);
-        formData.append('area', this.state.area);
         formData.append('year', this.state.year);
         formData.append('displayImage', this.state.displayImage);
-        //formData.append('galleryImages', this.state.galleryImages);
+
         for (const key of Object.keys(this.state.galleryImages)) {
             formData.append('galleryImages', this.state.galleryImages[key])
         }
+
+        console.log(this.state);
+        console.log(formData);
 
         axios({
             headers: {'Content-Type':'multipart/form-data'},
@@ -83,12 +89,12 @@ class PropertyRegister extends Component {
             type: '',
             status: '',
             location: '',
-            bedrooms: 1,
-            bathrooms: 1,
-            garages: 1,
-            price: 0,
-            area: '',
+            bedrooms: 0,
+            bathrooms: 0,
+            garages: 0,
+            price: '',
             year: '',
+            address: '',
             displayImage: undefined,
             displayImageKey: Date.now(),
             galleryImagesKey: Date.now(),
@@ -99,93 +105,101 @@ class PropertyRegister extends Component {
     render() {
         var value = 0;
         return(
-            <div className="property-register">
-                <form onSubmit={this.submit}>
-                    <div>
-                        <label htmlFor='title'>Title</label>
-                        <br />
-                        <input type='text' name='title' value={this.state.title} onChange={this.handleTextChange}/>
-                        <br /><br />
+            <div className="container">
+                <form onSubmit={this.submit} className='form-section container'>
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <input type='text' name='title' value={this.state.title} onChange={this.handleTextChange} className='form-input col-12 col-sm-12 col-md-8 col-lg-5'  placeholder='Enter Property Title' />                    
+                    </div>
+                        
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <textarea type='text' name='description' className='form-input description col-12 col-sm-12 col-md-8 col-lg-5' value={this.state.description} onChange={this.handleTextChange} placeholder='Enter Property Description'/>
+                    </div>
 
-                        <label htmlFor='description'>Description</label>
-                        <br />
-                        <input type='text' name='description' value={this.state.description} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='type'>Type</label>
-                        <select id="type" name="type" value={this.state.type} onChange={this.handleTextChange}>
-                            <option value="rent">Rent</option>
-                            <option value="sale">Sale</option>
+                    <div className='row form-group'>
+                        <div className='col-md-2 col-lg-3'></div>
+                        
+                        <select id="type" name="type" value={this.state.type} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 select-type'>
+                            <option value="">Select A Type</option>
+                            <option value="rent">For Rent</option>
+                            <option value="sale">For Sale</option>
                         </select>
-                        <br /><br />
 
-                        <label htmlFor='status'>Status</label>
-                        <br />
-                        <input type='text' name='status' value={this.state.status} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='location'>Main Location</label>
-                        <br />
-                        <input type='text' name='location' value={this.state.location} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='bedrooms'>Bedrooms</label>
-                        <br />
-                        <select id="bedrooms" name="bedrooms" value={this.state.bedrooms} onChange={this.handleTextChange}>
+                        <select id="bedrooms" name="bedrooms" value={this.state.bedrooms} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 offset-lg-1 select-type'>
+                            <option value='0'>Bedrooms</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="4">3</option>
                             <option value="3">4</option>
-                        </select>                    
-                        <br /><br />
-
-                        <label htmlFor='bathrooms'>Bathrooms</label>
-                        <br />
-                        <select id="bathrooms" name="bathrooms" value={this.state.bathrooms} onChange={this.handleTextChange}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="4">3</option>
-                        </select>                    
-                        <br /><br />
-
-                        <label htmlFor='garages'>Garages</label>
-                        <br />
-                        <select id="garages" name="garages" value={this.state.garages} onChange={this.handleTextChange}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="4">3</option>
-                        </select>                    
-                        <br /><br />
+                        </select>   
                     </div>
+
+                    <div className='row form-group'>
+                        <div className='col-md-2 col-lg-3'></div>
+
+                        <select id="bathrooms" name="bathrooms" value={this.state.bathrooms} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 select-type'>
+                            <option value='0'>Bathrooms</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">3</option>
+                        </select>  
+
+                        <select id="garages" name="garages" value={this.state.garages} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 offset-lg-1 select-type'>
+                            <option value='0'>Garages</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="4">3</option>
+                        </select> 
+                    </div>
+
+                    <div className='row form-group'>
+                        <div className='col-md-2 col-lg-3'></div>
+
+                        <input type='text' name='price' value={this.state.price} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 select-type' placeholder='Property Price'/>
+
+                        <input type='text' name='year' value={this.state.year} onChange={this.handleTextChange} className='col-6 col-sm-6 col-md-4 col-lg-2 offset-lg-1 select-type' placeholder='Year Built' />
+                    </div>
+
+                    <div className='row form-group'>
+                        <div className='col-2 col-sm-2 col-md-2 col-lg-4'></div>
+
+                        <select id="location" name="location" value={this.state.location} onChange={this.handleTextChange} className='col-8 col-sm-8 col-md-8 col-lg-3 select-type'>
+                            <option value='0'>Select a Location</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Sydney">Sydney</option>
+                            <option value="Brisbane">Brisbane</option>
+                            <option value="Perth">Perth</option>
+                        </select>
+
+                        <div className='col-1 col-md-2 col-lg-1'></div>
+
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <textarea type='text' name='address' className='form-input address col-12 col-sm-12 col-md-8 col-lg-5' value={this.state.address} onChange={this.handleTextChange} placeholder='Enter Property Address'/>
+                    </div>
+
+                    <div className='row images'>
+                        <div className='col-md-2 col-lg-3'></div>
+
+                        <label htmlFor='displayImage' className='col-5 col-sm-5 col-md-2 col-lg-2'>Display Image</label>
+                        <input type='file' name='displayImage' className='col-7 col-sm-7 col-md-8 col-lg-5' key={this.state.displayImageKey} onChange={this.handleFileChange} />                    
+                    </div>
+
+                    <div className='row images'>
+                        <div className='col-md-2 col-lg-3'></div>
+
+                        <label htmlFor='galleryImages' className='col-5 col-sm-5 col-md-2 col-lg-2'>Gallery Images</label>
+                        <input type='file' name='galleryImages' className='col-7 col-sm-7 col-md-8 col-lg-5' key={this.state.galleryImagesKey} onChange={this.handleFilesChange} multiple/>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-1 col-md-2 col-lg-3'></div>
+                        <button className='register-button button col-12 col-sm-12 col-md-8 col-lg-5'>Sign In</button>
+                    </div>                
                     
-                    <div>
-                        <label htmlFor='price'>Price</label>
-                        <br />
-                        <input type='text' name='price' value={this.state.price} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='area'>Area</label>
-                        <br />
-                        <input type='text' name='area' value={this.state.area} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='year'>Year Built</label>
-                        <br />
-                        <input type='text' name='year' value={this.state.year} onChange={this.handleTextChange} />
-                        <br /><br />
-
-                        <label htmlFor='displayImage'>Display Picture</label>
-                        <br />
-                        <input type='file' name='displayImage' key={this.state.displayImageKey} onChange={this.handleFileChange}/>
-                        <br /> <br />
-
-                        <label htmlFor='galleryImages'>Gallery Pictures</label>
-                        <br />
-                        <input type='file' name='galleryImages' key={this.state.galleryImagesKey} onChange={this.handleFilesChange} multiple/>
-                        <br /> <br />
-                    </div>
-
-                    <button>Register</button>
                 </form>
 
                 {this.state.property? 
